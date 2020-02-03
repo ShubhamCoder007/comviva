@@ -1,0 +1,101 @@
+public class Bicycle {
+
+	int speed;
+	
+	public Bicycle() {
+		this(0);
+	}
+	public Bicycle(int speed) {
+		this.speed = speed;
+	}
+	
+	public void speedUp() {
+		
+	}
+	
+	public void brakeDown() {
+		
+	}
+	
+}
+
+
+
+public class RoadBicycle extends Bicycle{
+	
+	public RoadBicycle() {
+		this(0);
+	}
+	public RoadBicycle(int speed) {
+		super(speed);
+	}
+	
+	public void speedUp() {
+		this.speed += 2;
+	}
+	
+	public void brakeDown() {
+		if(this.speed > 0)
+			this.speed -= 2;
+	}
+
+	
+	
+}
+
+
+
+
+public class MountainBicycle extends Bicycle{
+
+	public MountainBicycle() {
+		this(0);
+	}
+
+	public MountainBicycle(int speed) {
+		// TODO Auto-generated constructor stub
+		super(speed);
+	}
+	
+	public void speedUp() {
+		this.speed += 5;
+	}
+	
+	public void brakeDown() {
+		if(this.speed > 0)
+			this.speed -= 5;
+	}
+	
+}
+
+
+
+public class MainCycle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		RoadBicycle r1 = new RoadBicycle(20);
+		RoadBicycle r2 = new RoadBicycle(25);
+		MountainBicycle m1 = new MountainBicycle(40);
+		MountainBicycle m2 = new MountainBicycle(45);
+		
+		Bicycle[] b = {r1, r2, m1, m2};
+		
+		test(b);
+		
+	}
+
+	public static void test(Bicycle[] bic) {
+		// TODO Auto-generated method stub
+		for(Bicycle b : bic) {
+			System.out.println("speed : "+b.speed);
+			b.speedUp();
+			b.speedUp();
+			System.out.println("speed up : "+b.speed);
+			b.brakeDown();
+			System.out.println("Speed down:"+b.speed);
+		}
+	}
+
+}
